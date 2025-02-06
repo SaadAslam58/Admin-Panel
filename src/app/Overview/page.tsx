@@ -46,8 +46,9 @@ const Overview = () => {
           }`
         );
         setOrders(data);
-      } catch (err: any) {
-        setError(err.message || 'Failed to fetch orders');
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setError("Error fetching data");
       } finally {
         setLoading(false);
       }

@@ -25,7 +25,7 @@ const Profile = () => {
            }`
          )
          setData(response)
-       } catch (err: any) {
+       } catch (err) {
          console.error("Error fetching data:", err)
          setError("Failed to load orders.")
        } finally {

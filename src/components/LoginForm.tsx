@@ -52,6 +52,7 @@ const LoginForm = () => {
         setError(response.error || 'Invalid Credentials');
       }
     } catch (err) {
+      console.error("Error fetching data:", err);
       setError('Error occurred while trying to log in');
     }
   };
