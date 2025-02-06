@@ -58,7 +58,7 @@ const LoginForm = () => {
   };
   return (
     <div className='flex  justify-center items-center h-screen w-full bg-white'>
-      <Card className='w-1/2'>
+      <Card className='w-[90%] md:w-1/2'>
   <CardHeader>
     <CardTitle className='text-center text-5xl font-sans py-5'>Admin Panel</CardTitle>
   </CardHeader>
