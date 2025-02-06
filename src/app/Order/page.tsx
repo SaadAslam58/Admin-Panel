@@ -111,7 +111,7 @@ const Page = () => {
                       <p className="text-gray-600"><span className="font-medium">Quantity:</span> {item.quantity}</p>
                     </div>
                   ))}
-                  <div className="pt-4 md:flex-row flex-col md:space-x-5 md:space-y-0 space-y-3">
+                  <div className="pt-4 flex md:flex-row flex-col  md:space-x-5 md:space-y-0 space-y-3">
                     <p className="text-lg font-semibold text-gray-800">
                       <span className="font-medium">Total Price:</span> PKR {order.totalPrice}
                     </p>
