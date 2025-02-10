@@ -7,7 +7,7 @@ import Image from "next/image";
 import EditProductModal from "@/components/EditProductModal"; 
 import DeleteProductModal from "@/components/DeleteProductModal";
 import { urlFor } from "@/sanity/lib/image";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 interface Product {

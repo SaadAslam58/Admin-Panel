@@ -18,6 +18,7 @@ const DialogOverlay = React.forwardRef<
     {...props}
   />
 ));
+DialogOverlay.displayName = "DialogOverlay";
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
@@ -40,10 +41,12 @@ const DialogContent = React.forwardRef<
     </DialogPrimitive.Content>
   </DialogPrimitive.Portal>
 ));
+DialogContent.displayName = "DialogContent";
 
 const DialogHeader = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <div className={cn("mb-4 flex flex-col gap-2 text-center", className)}>{children}</div>
 );
+DialogHeader.displayName = "DialogHeader";
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
@@ -55,5 +58,6 @@ const DialogTitle = React.forwardRef<
     {...props}
   />
 ));
+DialogTitle.displayName = "DialogTitle";
 
 export { Dialog, DialogTrigger, DialogContent, DialogClose, DialogHeader, DialogTitle };
