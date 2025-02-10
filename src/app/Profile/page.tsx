@@ -35,8 +35,8 @@ const Profile = () => {
      fetchData()
    }, [])
  
-   if (loading) return <div className="p-6">Loading Customer Profiles...</div>
-   if (error) return <div className="p-6 text-red-500">Error: {error}</div>
+   if (loading) return <div className="p-6 text-center text-gray-600">Loading Customer Profiles...</div>
+   if (error) return <div className="p-6 text-center text-red-500">Error: {error}</div>
    if (!data || data.length === 0) return <div className="p-6">No Profile found.</div>
  
 

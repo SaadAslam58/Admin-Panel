@@ -27,6 +27,7 @@ type FormValue = z.infer<typeof FormSchema>;
 const LoginForm = () => {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -37,6 +38,10 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (data: FormValue) => {
+    if (loading) return; // Prevent duplicate submissions
+    setError(null);
+    setLoading(true);
+
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
@@ -54,60 +59,63 @@ const LoginForm = () => {
     } catch (err) {
       console.error("Error fetching data:", err);
       setError('Error occurred while trying to log in');
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
-    <div className='flex  justify-center items-center h-screen w-full bg-white'>
+    <div className='flex justify-center items-center h-screen w-full'>
       <Card className='w-[90%] md:w-1/2'>
-  <CardHeader>
-    <CardTitle className='text-center text-5xl font-sans py-5'>Admin Panel</CardTitle>
-  </CardHeader>
-  <form onSubmit={handleSubmit(onSubmit)}>
-  <CardContent>
-    <div className='space-y-2'>
-    <div className='space-y-1'>
-  <Label htmlFor='email' className='text-xl '>Email</Label>
-  <Input
-  id='email'
-  type='email'
-  placeholder='Enter your email address'
-  required
-  {...register('email')}
-  />
-  {errors.email && (
-    <p className='text-red-500 text-xs'>{errors.email.message}</p>
-  )}
-  </div>
+        <CardHeader>
+          <CardTitle className='text-center text-5xl font-sans py-5'>Admin Panel</CardTitle>
+        </CardHeader>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <CardContent>
+            <div className='space-y-2'>
+              <div className='space-y-1'>
+                <Label htmlFor='email' className='text-xl '>Email</Label>
+                <Input
+                  id='email'
+                  type='email'
+                  placeholder='Enter your email address'
+                  required
+                  {...register('email')}
+                />
+                {errors.email && (
+                  <p className='text-red-500 text-xs'>{errors.email.message}</p>
+                )}
+              </div>
 
-  <div className='space-y-1'>
-    <Label htmlFor='password' className='text-xl'>Password</Label>
-    <Input
-    id='password'
-    type='password'
-    placeholder='Enter your password'
-    required
-    {...register('password')}
-    />
-   {errors.password && (
-    <p className='text-red-500 text-xs'>{errors.password.message}</p>
-   )}
-  </div>
+              <div className='space-y-1'>
+                <Label htmlFor='password' className='text-xl'>Password</Label>
+                <Input
+                  id='password'
+                  type='password'
+                  placeholder='Enter your password'
+                  required
+                  {...register('password')}
+                />
+                {errors.password && (
+                  <p className='text-red-500 text-xs'>{errors.password.message}</p>
+                )}
+              </div>
 
-  {errors && (
-    <p className='text-red-500 mt-4 text-xs'>{error}</p>
-  )}
-  </div>
-  </CardContent>
-  
-  <CardFooter className="flex justify-between">
-    <Button type='submit' className='w-full'>
-     Login
-    </Button>
-  </CardFooter>
-  </form>
-</Card>
+              {error && ( // ✅ Fix: Only show error when it exists
+                <p className='text-red-500 mt-4 text-xs'>{error}</p>
+              )}
+            </div>
+          </CardContent>
+
+          <CardFooter className="flex justify-between">
+            <Button type='submit' className='w-full' disabled={loading}>
+              {loading ? 'Logging in...' : 'Login'}
+            </Button>
+          </CardFooter>
+        </form>
+      </Card>
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

@@ -84,8 +84,8 @@ const Page = () => {
   if (!data || data.length === 0) return <div className="p-6 text-center text-gray-600">No orders found.</div>;
   return (
     <div className="p-4 sm:p-6 lg:p-8 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Customer Orders</h1>
-      <div className="space-y-6 max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Customer Orders</h1>
+        <div className="space-y-6 max-w-4xl mx-auto">
         {data.map((order) => (
           <div key={order._id} className="bg-white shadow-lg rounded-lg p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

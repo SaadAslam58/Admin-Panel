@@ -1,4 +1,6 @@
 "use client";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
@@ -37,8 +39,11 @@ export default function RootLayout({
         <div className="flex">
           {showSidebar && <div className="w-16"><Sidebar /></div>}
           
-          <main className="flex-1 bg-gray-50 font-sans">
-            {children}</main>
+          <main className="flex-1 bg-gray-50 h-screen font-sans">
+            {children}
+            <ToastContainer position="bottom-right" autoClose={3000} />
+
+            </main>
         </div>
       </body>
     </html>
