@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FaUser, FaSignOutAlt, FaServicestack, FaBoxes } from "react-icons/fa";
+import { FaUser, FaSignOutAlt, FaServicestack, FaBoxes,FaBoxOpen } from "react-icons/fa";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -53,6 +53,21 @@ const Sidebar = () => {
                   title="Orders"
                 >
                   <FaBoxes className="text-xl" />
+                </div>
+              </Link>
+            </li>
+             {/* Products Link */}
+             <li>
+              <Link href="/Product">
+                <div
+                  className={`flex items-center justify-center w-12 h-12 rounded-lg cursor-pointer transition-all duration-200 ${
+                    pathname === "/Product"
+                      ? "bg-slate-600 text-white"
+                      : "hover:bg-slate-600/50"
+                  }`}
+                  title="Products"
+                >
+                  <FaBoxOpen className="text-xl" />
                 </div>
               </Link>
             </li>
