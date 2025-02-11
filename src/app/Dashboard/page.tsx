@@ -64,7 +64,7 @@ const Overview = () => {
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Overview</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Dashboard</h1>
       <div className="space-y-6 max-w-4xl mx-auto">
         {/* Summary Card */}
         <div className="bg-white shadow rounded-lg p-6">

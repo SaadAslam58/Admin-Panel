@@ -34,7 +34,7 @@ const DeleteProductModal = ({ isOpen, onClose, onConfirm }: DeleteProductModalPr
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+      <DialogContent className="md:w-full w-[90%] max-w-md p-6 bg-white rounded-lg shadow-lg">
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold text-gray-800">
             Confirm Delete

@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FaUser, FaSignOutAlt, FaServicestack, FaBoxes,FaBoxOpen } from "react-icons/fa";
+import { FaUser, FaSignOutAlt, FaBoxes,FaBoxOpen } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
+
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -31,14 +33,14 @@ const Sidebar = () => {
           <ul className="flex flex-col items-center text-white gap-4">
             {/* Overview Link */}
             <li>
-              <Link href="/Overview">
+              <Link href="/Dashboard">
                 <div
                   className={`flex items-center justify-center w-12 h-12 rounded-lg cursor-pointer transition-all duration-200 ${
-                    pathname === "/Overview" ? "bg-slate-600 text-white" : "hover:bg-slate-600/50"
+                    pathname === "/Dashboard" ? "bg-slate-600 text-white" : "hover:bg-slate-600/50"
                   }`}
-                  title="Overview"
+                  title="Dashboard"
                 >
-                  <FaServicestack className="text-xl" />
+                  <MdSpaceDashboard className="text-xl" />
                 </div>
               </Link>
             </li>

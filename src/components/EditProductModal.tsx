@@ -83,7 +83,7 @@ const EditProductModal = ({ product, isOpen, onClose, onSave }: EditProductModal
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent 
-        className="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto"
+        className="md:w-full w-[90%] max-w-lg p-6 bg-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto"
       >
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold text-gray-800">Edit Product</DialogTitle>
